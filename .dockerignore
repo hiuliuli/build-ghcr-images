@@ -1,0 +1,12 @@
+.venv/
+.git/
+__pycache__/
+*.pyc
+*.pyo
+README.md
+AGENTS.md
+.python-version
+pyproject.toml
+uv.lock
+instance/
+data/

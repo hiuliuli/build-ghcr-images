@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="device-list">
+    <div class="section-header">
+        <h2>设备列表</h2>
+        <button class="btn btn-primary" onclick="openForm()">添加设备</button>
+    </div>
+    <div id="deviceCards" class="card-grid"></div>
+    <p id="emptyMsg" class="empty-msg" style="display:none">暂无设备，点击"添加设备"开始。</p>
+</section>
+
+<dialog id="deviceDialog">
+    <div class="dialog-content">
+        <h3 id="dialogTitle">添加设备</h3>
+        <form id="deviceForm" onsubmit="submitForm(event)">
+            <input type="hidden" id="deviceId">
+            <label>
+                名称
+                <input type="text" id="deviceName" required maxlength="128" autocomplete="off">
+            </label>
+            <label>
+                主机
+                <input type="text" id="host" required maxlength="255" placeholder="192.168.1.255" autocomplete="off">
+            </label>
+            <label>
+                端口
+                <input type="number" id="port" required min="1" max="65535" value="9" autocomplete="off">
+            </label>
+            <label>
+                MAC
+                <input type="text" id="mac" required maxlength="17" placeholder="00:11:22:33:44:55" autocomplete="off">
+            </label>
+            <div class="dialog-actions">
+                <button type="button" class="btn" onclick="closeDialog()">取消</button>
+                <button type="submit" class="btn btn-primary">保存</button>
+            </div>
+        </form>
+    </div>
+</dialog>
+
+<dialog id="confirmDialog">
+    <div class="dialog-content">
+        <h3>确认删除</h3>
+        <p>确定要删除设备 <strong id="confirmName"></strong> 吗？</p>
+        <div class="dialog-actions">
+            <button type="button" class="btn" onclick="closeConfirm()">取消</button>
+            <button type="button" class="btn btn-danger" id="confirmDeleteBtn">删除</button>
+        </div>
+    </div>
+</dialog>
+{% endblock %}
