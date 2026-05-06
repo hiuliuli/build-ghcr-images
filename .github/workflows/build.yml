@@ -10,7 +10,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: hi-wol
+  IMAGE_NAME: "hi-wol"
 
 jobs:
   build:
